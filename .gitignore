@@ -1,0 +1,6 @@
+.dart_tool/
+build/
+doc/arch_doc/
+example/doc/arch_doc/
+*.log
+*.tmp

@@ -1,0 +1,10 @@
+name: sample_app
+description: Example application package that consumes architecture contracts.
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  sample_contracts:
+    path: ../sample_contracts
+  sample_core:
+    path: ../sample_core

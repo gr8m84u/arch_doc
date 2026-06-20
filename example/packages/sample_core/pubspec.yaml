@@ -1,0 +1,4 @@
+name: sample_core
+description: Shared domain models for the arch_doc example workspace.
+environment:
+  sdk: '>=3.0.0 <4.0.0'

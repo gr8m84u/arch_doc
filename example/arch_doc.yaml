@@ -1,0 +1,87 @@
+output:
+  root: doc/arch_doc
+  readme: README.md
+  workspace_graph: data/workspace_graph.json
+  packages_diagram: diagrams/packages.mmd
+  packages_diagram_puml: diagrams/packages.puml
+  components_report: reports/components.md
+  components_diagram: diagrams/components.mmd
+  components_diagram_puml: diagrams/components.puml
+  narrative_report: reports/narrative.md
+  risks_report: reports/risks.md
+  remediation_guide: remediation.md
+  contracts_report: contracts.md
+  contracts_diagram: contracts.mmd
+  contracts_diagram_puml: contracts.puml
+  component_contracts_dir: components
+  api_dir: api
+
+workspace_discovery:
+  include_external_path_packages: false
+  max_external_depth: 2
+  external_package_labels: {}
+
+layers:
+  core:
+    packages:
+      - sample_core
+
+  contracts:
+    packages:
+      - sample_contracts
+
+  applications:
+    packages:
+      - sample_app
+
+rules:
+  - name: core_must_not_depend_on_applications
+    from_layer: core
+    forbidden_layers:
+      - applications
+
+  - name: contracts_must_not_depend_on_applications
+    from_layer: contracts
+    forbidden_layers:
+      - applications
+
+excluded_packages: []
+
+excluded_paths:
+  - "**/.dart_tool/**"
+  - "**/build/**"
+  - ".git"
+
+api_rules:
+  require_public_entrypoint: true
+  forbid_exports_from_src: false
+  warn_internal_public_declarations: true
+  max_exported_symbols_per_package: null
+
+component_rules:
+  require_known_responsibility: true
+  warn_without_public_api: true
+  warn_without_dependents: false
+  warn_without_dependencies: false
+
+contract_analysis:
+  enabled: true
+  detect_protocols: true
+  include_lld_methods: true
+  unwrap_async_types: true
+  max_methods_per_contract: 50
+  warn_without_consumers: false
+
+diagram_embedding:
+  mode: inline_mermaid
+
+contract_diagrams:
+  layout: layered
+  view: type
+  lld_granularity: per_contract
+  include_component_lld_overview: false
+
+risk_rules:
+  fail_on_risks: false
+  fail_on_warnings: false
+  fail_on_observations: false
