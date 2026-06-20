@@ -27,8 +27,8 @@ dart format .
 ```powershell
 dart test
 dart analyze
-dart run bin\arch_doc.dart --root example generate --check
-dart run bin\arch_doc.dart --root example validate
+dart run arch_doc --root example generate --check
+dart run arch_doc --root example validate
 ```
 
 ## Adding Finding Codes

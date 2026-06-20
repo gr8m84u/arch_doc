@@ -213,7 +213,7 @@ See [packages.mmd](./diagrams/packages.mmd) for the full diagram.
 This document is automatically generated. To ensure the workspace adheres to these rules, run:
 
 ```powershell
-dart run bin\\arch_doc.dart validate
+dart run arch_doc validate
 ```
 
 ## Generated Artifacts

@@ -103,7 +103,7 @@ void main() {
       );
       expect(
         check.stdout,
-        contains(r'Run "dart run bin\arch_doc.dart generate" to update.'),
+        contains(r'Run "dart run arch_doc generate" to update.'),
       );
     });
 
@@ -170,7 +170,7 @@ void main() {
       expect(
         result.stdout,
         contains(
-          r'Example: dart run bin\arch_doc.dart --config C:\path\to\arch_doc.yaml validate',
+          r'Example: dart run arch_doc --config C:\path\to\arch_doc.yaml validate',
         ),
       );
     });

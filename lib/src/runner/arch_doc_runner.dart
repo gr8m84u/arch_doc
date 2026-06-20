@@ -116,7 +116,7 @@ class ArchDocRunner {
         'Create arch_doc.yaml in the workspace root or pass --config.',
       );
       output.add(
-        r'Example: dart run bin\arch_doc.dart --config C:\path\to\arch_doc.yaml validate',
+        r'Example: dart run arch_doc --config C:\path\to\arch_doc.yaml validate',
       );
       return ArchDocResult(exitCode: 1, stdout: output);
     }
@@ -214,7 +214,7 @@ class ArchDocRunner {
       if (mismatch) {
         output.add('');
         output.add('Architecture documentation is out of date.');
-        output.add(r'Run "dart run bin\arch_doc.dart generate" to update.');
+        output.add(r'Run "dart run arch_doc generate" to update.');
         return ArchDocResult(
           exitCode: 1,
           stdout: output,

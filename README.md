@@ -36,15 +36,32 @@ Not currently supported:
 - Method-body analysis
 - LLM-generated documentation
 
-## Quick Start For Windows
+## Install
+
+Install the command from pub.dev:
+
+```powershell
+dart pub global activate arch_doc
+arch_doc --root C:\path\to\your_workspace generate
+arch_doc --root C:\path\to\your_workspace validate
+```
+
+Or add it as a development dependency in a workspace and run it with `dart run`:
+
+```powershell
+dart pub add --dev arch_doc
+dart run arch_doc generate
+dart run arch_doc validate
+```
+
+## Quick Start From Source
 
 From this repository:
 
 ```powershell
-Set-Location arch_doc
 dart pub get
-dart run bin\arch_doc.dart --root example generate
-dart run bin\arch_doc.dart --root example validate
+dart run arch_doc --root example generate
+dart run arch_doc --root example validate
 ```
 
 The generated example documentation is written to:
@@ -53,22 +70,22 @@ The generated example documentation is written to:
 arch_doc\example\doc\arch_doc
 ```
 
-To use `arch_doc` in another workspace, add an `arch_doc.yaml` file to that workspace and run:
+To use a local checkout in another workspace, add an `arch_doc.yaml` file to that workspace and run:
 
 ```powershell
 Set-Location C:\path\to\your_workspace
-dart run arch_doc\bin\arch_doc.dart generate
-dart run arch_doc\bin\arch_doc.dart validate
+dart C:\path\to\arch_doc\bin\arch_doc.dart generate
+dart C:\path\to\arch_doc\bin\arch_doc.dart validate
 ```
 
 ## CLI Usage
 
 ```powershell
-dart run bin\arch_doc.dart --root C:\path\to\workspace generate
-dart run bin\arch_doc.dart --root C:\path\to\workspace generate --check
-dart run bin\arch_doc.dart --root C:\path\to\workspace generate --dependency-source used
-dart run bin\arch_doc.dart --root C:\path\to\workspace validate
-dart run bin\arch_doc.dart --root C:\path\to\workspace --config C:\path\to\arch_doc.yaml validate
+arch_doc --root C:\path\to\workspace generate
+arch_doc --root C:\path\to\workspace generate --check
+arch_doc --root C:\path\to\workspace generate --dependency-source used
+arch_doc --root C:\path\to\workspace validate
+arch_doc --root C:\path\to\workspace --config C:\path\to\arch_doc.yaml validate
 ```
 
 Options:
@@ -163,9 +180,9 @@ Run it with:
 
 ```powershell
 Set-Location arch_doc
-dart run bin\arch_doc.dart --root example generate
-dart run bin\arch_doc.dart --root example generate --check
-dart run bin\arch_doc.dart --root example validate
+dart run arch_doc --root example generate
+dart run arch_doc --root example generate --check
+dart run arch_doc --root example validate
 ```
 
 ## Contributing
@@ -175,12 +192,12 @@ Contributions are welcome. Good starting points include documentation improvemen
 Read:
 
 - `CONTRIBUTING.md`
-- `docs\development.md`
-- `docs\roadmap.md`
+- `doc\development.md`
+- `doc\roadmap.md`
 
 ## Roadmap
 
-The project roadmap is maintained in `docs\roadmap.md`. It includes dependency graph visualization, Mermaid export improvements, CI integration, a GitHub Action, improved Flutter support, advanced architecture rules, and monorepo improvements.
+The project roadmap is maintained in `doc\roadmap.md`. It includes dependency graph visualization, Mermaid export improvements, CI integration, a GitHub Action, improved Flutter support, advanced architecture rules, and monorepo improvements.
 
 ## License
 

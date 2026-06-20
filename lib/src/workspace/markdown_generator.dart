@@ -519,7 +519,7 @@ class MarkdownGenerator {
     );
     buffer.writeln();
     buffer.writeln('```powershell');
-    buffer.writeln(r'dart run bin\arch_doc.dart validate');
+    buffer.writeln(r'dart run arch_doc validate');
     buffer.writeln('```');
     buffer.writeln();
   }
