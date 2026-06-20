@@ -31,6 +31,20 @@ dart run arch_doc --root example generate --check
 dart run arch_doc --root example validate
 ```
 
+## Repository Governance
+
+The `main` branch is protected by the `Protect main` GitHub ruleset. Contributors should open pull requests from feature branches or forks instead of pushing directly to `main`.
+
+Pull requests are expected to pass the project verification checks before merge:
+
+```powershell
+dart analyze .
+dart test
+dart pub publish --dry-run
+```
+
+The repository uses `.github/CODEOWNERS` to keep ownership clear for release metadata, CLI entrypoints, configuration, validation rules, and runner behavior. Changes in owned areas may require maintainer review before merge.
+
 ## Adding Finding Codes
 
 When adding a finding code:
